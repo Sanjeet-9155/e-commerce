@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/myContext";
 import { useParams } from "react-router";
-import { fireDB } from "../../firebase/FirebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
+// import { fireDB } from "../../firebase/FirebaseConfig";
+// import { doc, getDoc } from "firebase/firestore";
 import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../redux/cartSlice";
@@ -25,7 +25,7 @@ const ProductInfo = () => {
     const getProductData = async () => {
         setLoading(true)
         try {
-            const productTemp = await getDoc(doc(fireDB, "products", id))
+            // const productTemp = await getDoc(doc(fireDB, "products", id))
             // console.log({...productTemp.data(), id : productTemp.id})
             setProduct({...productTemp.data(), id : productTemp.id})
             setLoading(false)

@@ -1,8 +1,8 @@
-import { Timestamp, addDoc, collection } from "firebase/firestore";
+// import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { useContext, useState } from "react";
 import myContext from "../../context/myContext";
 import toast from "react-hot-toast";
-import { fireDB } from "../../firebase/FirebaseConfig";
+// import { fireDB } from "../../firebase/FirebaseConfig";
 import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
 
@@ -48,7 +48,7 @@ const AddProductPage = () => {
         category: "",
         description: "",
         quantity : 1,
-        time: Timestamp.now(),
+        // time: Timestamp.now(),
         date: new Date().toLocaleString(
             "en-US",
             {
@@ -67,17 +67,17 @@ const AddProductPage = () => {
         }
 
         setLoading(true);
-        try {
-            const productRef = collection(fireDB, 'products');
-            await addDoc(productRef, product)
-            toast.success("Add product successfully");
-            navigate('/admin-dashboard')
-            setLoading(false)
-        } catch (error) {
-            console.log(error);
-            setLoading(false)
-            toast.error("Add product failed");
-        }
+        // try {
+        //     const productRef = collection(fireDB, 'products');
+        //     await addDoc(productRef, product)
+        //     toast.success("Add product successfully");
+        //     navigate('/admin-dashboard')
+        //     setLoading(false)
+        // } catch (error) {
+        //     console.log(error);
+        //     setLoading(false)
+        //     toast.error("Add product failed");
+        // }
 
     }
     return (

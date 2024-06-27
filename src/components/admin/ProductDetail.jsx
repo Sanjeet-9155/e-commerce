@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import Loader from "../loader/Loader";
-import { deleteDoc, doc } from "firebase/firestore";
-import { fireDB } from "../../firebase/FirebaseConfig";
+// import { deleteDoc, doc } from "firebase/firestore";
+// import { fireDB } from "../../firebase/FirebaseConfig";
 import toast from "react-hot-toast";
 
 const ProductDetail = () => {
@@ -18,7 +18,7 @@ const ProductDetail = () => {
     const deleteProduct = async (id) => {
         setLoading(true)
         try {
-            await deleteDoc(doc(fireDB, 'products', id))
+            // await deleteDoc(doc(fireDB, 'products', id))
             toast.success('Product Deleted successfully')
             getAllProductFunction();
             setLoading(false)

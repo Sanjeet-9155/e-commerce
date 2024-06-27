@@ -4,8 +4,8 @@ import { Trash } from 'lucide-react'
 import { decrementQuantity, deleteFromCart, incrementQuantity } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-import { Timestamp, addDoc, collection } from "firebase/firestore";
-import { fireDB } from "../../firebase/FirebaseConfig";
+// import { Timestamp, addDoc, collection } from "firebase/firestore";
+// import { fireDB } from "../../firebase/FirebaseConfig";
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 import { Navigate } from "react-router";
 
@@ -46,7 +46,7 @@ const CartPage = () => {
         address: "",
         pincode: "",
         mobileNumber: "",
-        time: Timestamp.now(),
+        // time: Timestamp.now(),
         date: new Date().toLocaleString(
             "en-US",
             {
@@ -70,7 +70,7 @@ const CartPage = () => {
             email: user.email,
             userid: user.uid,
             status: "confirmed",
-            time: Timestamp.now(),
+            // time: Timestamp.now(),
             date: new Date().toLocaleString(
                 "en-US",
                 {
@@ -81,8 +81,8 @@ const CartPage = () => {
             )
         }
         try {
-            const orderRef = collection(fireDB, 'order');
-            addDoc(orderRef, orderInfo);
+            // const orderRef = collection(fireDB, 'order');
+            // addDoc(orderRef, orderInfo);
             setAddressInfo({
                 name: "",
                 address: "",

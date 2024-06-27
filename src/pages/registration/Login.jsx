@@ -3,10 +3,10 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import toast from "react-hot-toast";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, fireDB } from "../../firebase/FirebaseConfig";
+// import { signInWithEmailAndPassword } from "firebase/auth";
+// import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
+// import { collection, onSnapshot, query, where } from "firebase/firestore";
 
 const Login = () => {
     const context = useContext(myContext);
@@ -33,35 +33,35 @@ const Login = () => {
 
         setLoading(true);
         try {
-            const users = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password);
+            // const users = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password);
             // console.log(users.user)
 
-            try {
-                const q = query(
-                    collection(fireDB, "user"),
-                    where('uid', '==', users?.user?.uid)
-                );
-                const data = onSnapshot(q, (QuerySnapshot) => {
-                    let user;
-                    QuerySnapshot.forEach((doc) => user = doc.data());
-                    localStorage.setItem("users", JSON.stringify(user) )
-                    setUserLogin({
-                        email: "",
-                        password: ""
-                    })
-                    toast.success("Login Successfully");
-                    setLoading(false);
-                    if(user.role === "user") {
-                        navigate('/user-dashboard');
-                    }else{
-                        navigate('/admin-dashboard');
-                    }
-                });
-                return () => data;
-            } catch (error) {
-                console.log(error);
-                setLoading(false);
-            }
+            // try {
+            //     const q = query(
+            //         // collection(fireDB, "user"),
+            //         where('uid', '==', users?.user?.uid)
+            //     );
+            //     const data = onSnapshot(q, (QuerySnapshot) => {
+            //         let user;
+            //         QuerySnapshot.forEach((doc) => user = doc.data());
+            //         localStorage.setItem("users", JSON.stringify(user) )
+            //         setUserLogin({
+            //             email: "",
+            //             password: ""
+            //         })
+            //         toast.success("Login Successfully");
+            //         setLoading(false);
+            //         if(user.role === "user") {
+            //             navigate('/user-dashboard');
+            //         }else{
+            //             navigate('/admin-dashboard');
+            //         }
+            //     });
+            //     return () => data;
+            // } catch (error) {
+            //     console.log(error);
+            //     setLoading(false);
+            // }
         } catch (error) {
             console.log(error);
             setLoading(false);

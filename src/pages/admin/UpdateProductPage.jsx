@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router";
 import myContext from "../../context/myContext";
 import { useContext, useEffect, useState } from "react";
-import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
-import { fireDB } from "../../firebase/FirebaseConfig";
+// import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
+// import { fireDB } from "../../firebase/FirebaseConfig";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader/Loader";
 
@@ -49,7 +49,7 @@ const UpdateProductPage = () => {
         productImageUrl: "",
         category: "",
         description: "",
-        time: Timestamp.now(),
+        // time: Timestamp.now(),
         date: new Date().toLocaleString(
             "en-US",
             {
@@ -63,19 +63,19 @@ const UpdateProductPage = () => {
     // Get Single Product Function
     const getSingleProductFunction = async () => {
         try {
-            const productTemp = await getDoc(doc(fireDB, "products", id))
-            //   console.log(product.data())
-            const product = productTemp.data();
-            setProduct({
-                title: product?.title,
-                price: product?.price,
-                productImageUrl: product?.productImageUrl,
-                category: product?.category,
-                description: product?.description,
-                quantity : product?.quantity,
-                time: product?.time,
-                date: product?.date
-            })
+            // const productTemp = await getDoc(doc(fireDB, "products", id))
+            // //   console.log(product.data())
+            // const product = productTemp.data();
+            // setProduct({
+            //     title: product?.title,
+            //     price: product?.price,
+            //     productImageUrl: product?.productImageUrl,
+            //     category: product?.category,
+            //     description: product?.description,
+            //     quantity : product?.quantity,
+            //     time: product?.time,
+            //     date: product?.date
+            // })
         } catch (error) {
             console.log(error);
             setLoading(false);
@@ -86,10 +86,10 @@ const UpdateProductPage = () => {
         setLoading(true)
         try {
 
-            await setDoc(doc(fireDB, 'products', id), product)
-            toast.success("Product Updated successfully")
-            getAllProductFunction();
-            setLoading(false)
+            // await setDoc(doc(fireDB, 'products', id), product)
+            // toast.success("Product Updated successfully")
+            // getAllProductFunction();
+            // setLoading(false)
             navigate('/admin-dashboard')
 
         } catch (error) {
